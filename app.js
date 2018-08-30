@@ -13,7 +13,7 @@ const argv = yargs.options(
     .alias('help','h')
     .argv;
 
-geoAddress.getAddress(argv.a,(error,data) => {
+/* geoAddress.getAddress(argv.a,(error,data) => {
     if(error)
     {
         console.log(error);
@@ -21,4 +21,11 @@ geoAddress.getAddress(argv.a,(error,data) => {
     else{
         console.log(JSON.stringify(data,undefined,2));
     }
-});
+}); */
+
+geoAddress.getAddress(argv.a).then((data) => {
+
+    console.log(JSON.stringify(data,undefined,2));
+},(errorMessage) => {
+    console.log(errorMessage);
+}) 
